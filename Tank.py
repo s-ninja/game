@@ -1,6 +1,8 @@
 from random import *
+
+
 class Tank:
-    def __init__(self, model , armor, min_damage, max_damage, health,
+    def __init__(self, model, armor, min_damage, max_damage, health,
                  enemy_model, enemy_armor, enemy_min_damage, enemy_max_damage, enemy_health):
         self.model = model
         self.armor = armor
@@ -15,33 +17,31 @@ class Tank:
         self.enemy_enemy = enemy_model
         self.enemy_health = health
 
-
     def print_info(self):
         print(f'{self.model} имеет лобовую броню {self.armor}мм. при {self.health} '
-                f'ед. здоровья и урон в {self.damage} единиц')
+              f'ед. здоровья и урон в {self.damage} единиц')
 
-
-    def healt_down(self,num_shot):
+    def healt_down(self, num_shot):
         if num_shot % 2 == 0:
-            self.enemy_health = self.enemy_health - self.damage/self.enemy_armor
+            self.enemy_health = self.enemy_health - self.damage / self.enemy_armor
             num_shot += 1
         else:
-            self.health = self.health - self.enemy_damage/self.armor
+            self.health = self.health - self.enemy_damage / self.armor
             print(f'{self.model}: Командир, по экипажу {self.model} попали,'
                   f' у нас осталось {self.health} очков здовроья')
             num_shot += 1
-
 
     def shot(self, num_shot):
         while self.health > 0 and self.enemy_health > 0:
             self.healt_down(num_shot)
 
-            self , если.enemy_health <= 0:
+            if self.enemy_health <= 0:
 
                 print(f'Экипаж танка {self.enemy} уничтожен')
 
             else:
-                print(f'{self.model}: Точно в цель, у противника осталось {self.enemy} осталось {self.enemy_health} единиц здоровья. ')
+                print(
+                    f'{self.model}: Точно в цель, у противника осталось {self.enemy} осталось {self.enemy_health} единиц здоровья. ')
 
 
 m = input('Введите модель танка ')
